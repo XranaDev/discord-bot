@@ -13,12 +13,12 @@ const webhookClient = new WebhookClient(
 	process.env.WEBHOOK_ID,
 	process.env.WEBHOOK_TOKEN
 );
-const PREFIX = "$";
+const PREFIX = "stw!";
 const queue = new Map();
 
 client.on("ready", () => {
 	console.log(`${client.user.tag} has logged in.`);
-	client.user.setActivity("⚠️ $help ⚠️ ");
+	client.user.setActivity("⚠️ stw!help ⚠️ ");
 });
 
 client.on("message", async (message) => {
@@ -88,24 +88,27 @@ client.on("message", async (message) => {
 		} else if (CMD_NAME === "help") {
 			const embed = new MessageEmbed().setColor("#ebb734").setDescription(`
 __**MODERATION BOT:**__
-	- **Kick: **$kick @[user_name] [reason]
-	- **Ban: **$ban @[user_name] [reason]
-	- **Soft ban: **$softban @[user_name] [reason]
-	- **Temp ban: **$tempban @[user_name] [reason] [seconds]
-	- **Mute: ** $mute @[user_name] [reason] [seconds]
-	- **UnMute: **$unmute @[user_name] [reason]
-	- **Announcements: **$announce [text]
+	- **Kick: **stw!kick @[user_name] [reason]
+	- **Ban: **stw!ban @[user_name] [reason]
+	- **Soft ban: **stw!softban @[user_name] [reason]
+	- **Temp ban: **stw!tempban @[user_name] [reason] [seconds]
+	- **Mute: ** stw!mute @[user_name] [reason] [seconds]
+	- **UnMute: **stw!unmute @[user_name] [reason]
+	- **Announcements: **stw!announce [text]
 
 __**MUSIC BOT:**__
-	- **Play: **$play [youtube_url]
-	- **Add music to queue: **$play [youtube_url]
-	- **Stop: **$stop
-	- **Skip: **$skip
-	- **Pause: **$pause
-	- **Resume: **$resume
-	- **change Volume: **$volume [1-5] - default: 5
-	- **Now Playing: **$nowplaying
-	- **check song queue: **$queue
+	- **Play: **stw!play [youtube_url]
+	- **Add music to queue: **stw!play [youtube_url]
+	- **Stop: **stw!stop
+	- **Skip: **stw!skip
+	- **Pause: **stw!pause
+	- **Resume: **stw!resume
+	- **change Volume: **stw!volume [1-5] - default: 5
+	- **Now Playing: **stw!nowplaying
+	- **check song queue: **stw!queue
+
+
+**IF YOU WANT DM XRANA AND HE WILL GIVE YOU THE SOURCE CODE**
 			`);
 			return message.channel.send(embed);
 		} else if (CMD_NAME === "ban") {
